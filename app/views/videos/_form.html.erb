@@ -1,0 +1,23 @@
+<div class="container">
+  <h1><%= @video.new_record? ? "New Video" : " " %></h1>
+
+  <%= form_with(model: @video, local: true, data: { turbo: false }, class: "video-form") do |form| %>
+    <% if @video.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+        <ul>
+          <% @video.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :url, "Video URL", class: "form-label" %>
+      <%= form.text_field :url, placeholder: "Enter a video URL (e.g., YouTube, Twitter, etc.)", class: "form-input" %>
+    </div>
+
+    <%= form.submit "Fetch Video", class: "btn btn-primary" %>
+  <% end %>
+</div>

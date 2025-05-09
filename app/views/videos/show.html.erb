@@ -1,0 +1,46 @@
+<div class="container">
+  <h1><%= @video.title.presence || "Video" %></h1>
+
+  <p>Status: <%= @video.status %></p>
+
+  <div id="video-content" data-video-id="<%= @video.id %>">
+    <% if @video.status == "ready" %>
+      <h2>Preview:</h2>
+      <% file_path = Rails.root.join("public", "downloads", "video_#{@video.id}.mp4") %>
+      <% if File.exist?(file_path) %>
+        <div class="video-container" data-video-id="<%= @video.id %>">
+          <video class="video-player" width="640" height="360" controls muted>
+            <source src="<%= "/downloads/video_#{@video.id}.mp4" %>" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <% if @video.thumbnail.present? %>
+            <div class="thumbnail-overlay">
+              <img src="<%= @video.thumbnail %>" alt="Thumbnail" class="thumbnail">
+              <button class="play-button" aria-label="Play video"></button>
+            </div>
+          <% end %>
+        </div>
+
+        <h3>Download Options:</h3>
+        <div class="download-options">
+          <% if @video.quality_files.present? %>
+            <% @video.quality_files.each do |quality, _path| %>
+              <%= link_to "Download #{quality}", download_video_video_path(@video, quality: quality), class: "btn", data: { turbo: false } %>
+            <% end %>
+          <% else %>
+            <%= link_to "Download", download_video_video_path(@video), class: "btn", data: { turbo: false } %>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="error-message">The video file is missing. Please try processing the video again.</p>
+      <% end %>
+    <% elsif @video.status == "processing" %>
+      <p class="processing">Processing... Please wait.</p>
+    <% elsif @video.status == "error" %>
+      <p class="error-message">Failed to process the video. Please check the URL or try again later.</p>
+    <% else %>
+      <p>Waiting for processing to start.</p>
+    <% end %>
+  </div>
+  <%= link_to "Explore More", new_video_path, class: "back-link" %>
+</div>

@@ -1,0 +1,98 @@
+/* Base container styles */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Header */
+  .container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Form styling */
+  .video-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.2s ease-in-out;
+  }
+  
+  .form-input:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  /* Submit button */
+  .btn.btn-primary {
+    background-color: #007BFF;
+    border: none;
+    padding: 12px 20px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+  }
+  
+  .btn.btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Back link */
+  .back-link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Error messages */
+  .error-messages {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .error-messages h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .error-messages ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+  
