@@ -20,7 +20,7 @@ gem "httparty"         # to make HTTP requests
 gem "view_component"   # for building reusable components
 
 gem "redis"
-gem "sidekiq", "~> 7.2"
+gem "sidekiq", "~> 8.0"
 
 gem "friendly_id"
 
